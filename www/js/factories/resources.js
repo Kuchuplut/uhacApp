@@ -1,4 +1,5 @@
-var apiUrl 			=	'http://localhost:8000/api/finapp/';
+// var apiUrl 			=	'http://localhost:8000/api/finapp/';
+var apiUrl 			=	'http://192.168.43.194/uhac/public/index.php/api/finapp/';
 angular.module('app')
 	.factory('Account', function($resource){
 		return $resource(apiUrl+'v1/accounts/:id', {
