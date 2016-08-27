@@ -7,10 +7,14 @@
 
 		function eBankingCtrl($scope, $stateParams, $ionicModal, Category, $filter){
 			var vm = this;
+			vm.categories = [];
 
 			Category.get().$promise.then(function(data){
 				vm.categories 			=	$filter('orderBy')(data.categories, 'str_category', false);
+				//console.log(vm.categories);
 			});
+
+
 
 			$ionicModal.fromTemplateUrl('templates/cashOnHandModal.html', {
 			   scope: $scope,

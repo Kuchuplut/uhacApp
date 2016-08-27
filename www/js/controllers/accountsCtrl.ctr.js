@@ -35,12 +35,15 @@
 
 			  myPopup.then(function(res) {
 			    console.log('Tapped!', res);
-
 			  });
 
 			  $timeout(function() {
 			     myPopup.close(); //close the popup after 3 seconds for some reason
 			  }, 5000);
+			 };
+
+			 vm.getBankAccountList = function(){
+			 	vm.bankAccountList = []; // Enter bank list
 			 };
 
 		}

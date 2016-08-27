@@ -5,7 +5,7 @@
 		.module('app')
 		.controller('signupCtrl', signupCtrl);
 
-		function signupCtrl($scope, $stateParams, Account, $ionicPopup){
+		function signupCtrl($scope, $stateParams, Account, $ionicPopup, $window){
 			var vm = this;
 			vm.details = {};
 
@@ -31,11 +31,12 @@
 
 		  alertPopup.then(function(res) {
 		    console.log('Thank you for not eating my delicious ice cream cone');
-		    $scope.go('/homePage');
+		    vm.go('/homePage');
+		    $window.location.href = 'templates/accounts.html';
 		  });
 		 }
 
-		 $scope.go = function ( path ) {
+		 vm.go = function ( path ) {
 		   $location.path( path );
 		 };
 	}
