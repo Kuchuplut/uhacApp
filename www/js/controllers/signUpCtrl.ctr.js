@@ -5,7 +5,7 @@
 		.module('app')
 		.controller('signupCtrl', signupCtrl);
 
-		function signupCtrl($scope, $stateParams, Account, $ionicPopup){
+		function signupCtrl($scope, $stateParams, Account, $ionicPopup, $window, $location){
 			var vm = this;
 			vm.details = {};
 
@@ -14,7 +14,7 @@
 			console.log("Hello signup!");
 			var account 			=	new Account(details);
 			account.$save(function(data){
-				showAlert();
+				$scope.showAlert();
 				//show success message
 				//redirect to login
 
@@ -31,7 +31,8 @@
 
 		  alertPopup.then(function(res) {
 		    console.log('Thank you for not eating my delicious ice cream cone');
-		    $scope.go('/homePage');
+		    $scope.go('/#/homeTab/homePage');
+		    $window.location.href = '/#/homeTab/homePage';
 		  });
 		 }
 
