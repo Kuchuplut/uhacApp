@@ -27,4 +27,9 @@ angular.module('app')
 	})
 	.factory('Biller', function($resource){
 		return $resource(apiUrl+'v1/billers', {});
+	})
+	.factory('Session', function($resource){
+		return $resource(apiUrl+'v1/sessions/:id', {
+			id 			: 	'@id'
+		});
 	});

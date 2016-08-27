@@ -43,7 +43,7 @@
 			 };
 
 			 vm.getBankAccountList = function(){
-			 	vm.bankAccountList = []; // Enter bank list
+			 	vm.bankAccountList = []; // Enter bank list 	
 			 };
 
 		}
