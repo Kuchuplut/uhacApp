@@ -5,15 +5,15 @@
 		.module('app')
 		.controller('accountsCtrl', accountsCtrl);
 
-		function accountsCtrl($scope, $stateParams, $ionicPopup, $timeout, BankAccount){
+		function accountsCtrl($scope, $stateParams, $ionicPopup, $timeout, BankAccount, Session){
 			var vm = this;
 
 			vm.showPopup = function() {
-			  vm.data = {};
+			  $scope.data = {};
 
 			  // An elaborate, custom popup
 			  var myPopup = $ionicPopup.show({
-			    template: '<input type="password" ng-model="vm.data.account">',
+			    template: '<input type="text" ng-model="data.str_account_no">',
 			    title: 'Enter Account Number',
 			    scope: $scope,
 			    buttons: [
@@ -22,11 +22,12 @@
 			        text: '<b>Save</b>',
 			        type: 'button-positive',
 			        onTap: function(e) {
-			          if (!vm.data.account) {
+			          if (!$scope.data.str_account_no) {
 			            //don't allow the user to close unless he enters wifi password
 			            e.preventDefault();
 			          } else {
-			            return vm.data.account;
+			            return $scope.data.str_account_no;
+			            console.log($scope.data.str_account_no);
 			          }
 			        }
 			      }
@@ -35,12 +36,23 @@
 
 			  myPopup.then(function(res) {
 			    console.log('Tapped!', res);
-
+			    var session 			=	null;
+			    Session.get({id : 123456789}).$promise.then(function(data){
+			    	session 		=	data.account;
+			    	var data		=	{
+			    		accountId 			: 	session.int_account_id,
+			    		str_account_no		: 	res
+			    	};
+			    	var bankAccount 		=	new BankAccount(data);
+			    	bankAccount.$save(function(data){
+			    		//show success message
+			    		console.log('Success!');
+			    	}, function(response){
+			    		//show error message
+			    	});
+			    });
 			  });
 
-			  $timeout(function() {
-			     myPopup.close(); //close the popup after 3 seconds for some reason
-			  }, 5000);
 			 };
 
 		}
