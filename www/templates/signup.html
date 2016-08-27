@@ -5,40 +5,40 @@
                 <label>Customer Information</label>
                 <label class="item item-input" id="signup-input5">
                     <span class="input-label">Name</span>
-                    <input type="text" placeholder="" ng-model = "vm.details.name">
+                    <input type="text" placeholder="" ng-model = "vm.details.str_name">
                 </label>
                 <label class="item item-input" id="signup-input9">
                     <span class="input-label">Contact No.</span>
-                    <input type="number" placeholder="" ng-model = "vm.details.number">  
+                    <input type="number" placeholder="" ng-model = "vm.details.str_contact">  
                 </label>
                 <label>Gender</label>
                 <ion-list>
-                  <ion-radio ng-model="vm.details.gender" ng-value=1>Male</ion-radio>
-                  <ion-radio ng-model="vm.details.gender" ng-value=2>Female</ion-radio>
+                  <ion-radio ng-model="vm.details.int_gender" ng-value=1>Male</ion-radio>
+                  <ion-radio ng-model="vm.details.int_gender" ng-value=2>Female</ion-radio>
                 </ion-list>
                 <label>Civil Status</label>
                 <ion-list>
-                  <ion-radio ng-model="vm.details.status" ng-value=4>Single</ion-radio>
-                  <ion-radio ng-model="vm.details.status" ng-value=5>Married</ion-radio>
-                  <ion-radio ng-model="vm.details.status" ng-value=6>Widow</ion-radio>
+                  <ion-radio ng-model="vm.details.int_civil_status" ng-value=1>Single</ion-radio>
+                  <ion-radio ng-model="vm.details.int_civil_status" ng-value=2>Married</ion-radio>
+                  <ion-radio ng-model="vm.details.int_civil_status" ng-value=3>Widow</ion-radio>
                 </ion-list>
                 <label>Account Information</label>
                 <label class="item item-input" id="signup-input6">
                     <span class="input-label">Username</span>
-                    <input type="text" placeholder="" ng-model = "vm.details.username">
+                    <input type="text" placeholder="" ng-model = "vm.details.str_username">
                 </label>
                 <label class="item item-input" id="signup-input7">
                     <span class="input-label">Password</span>
-                    <input type="text" placeholder="" ng-model = "vm.details.password">
+                    <input type="password" placeholder="" ng-model = "vm.details.str_password">
                 </label>
                 <label class="item item-input" id="signup-input8">
                     <span class="input-label">E-mail</span>
-                    <input type="email" placeholder="" ng-model = "vm.details.email">
+                    <input type="email" placeholder="" ng-model = "vm.details.str_email">
                 </label>
                 
             </ion-list>
-            <input type="submit" id="signup-button5" style="font-weight:300;" class="button button-positive  button-block button-primary" ng-click = "vm.signUp(vm.details)" value="Sign Up">
-            <button id="signup-button24" style="font-weight:300;" class="button button-energized  button-block button-outline" on-click = "vm.signUp(vm.details)">Cancel</button>
+            <input type="submit" id="signup-button5" style="font-weight:300;" class="button button-positive  button-block button-primary" value="Sign Up">
+            <button id="signup-button24" style="font-weight:300;" class="button button-energized  button-block button-outline">Cancel</button>
         </form>
     </ion-content>
 </ion-view>

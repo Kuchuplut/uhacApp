@@ -5,8 +5,12 @@
 		.module('app')
 		.controller('eBankingCtrl', eBankingCtrl);
 
-		function eBankingCtrl($scope, $stateParams, $ionicModal){
+		function eBankingCtrl($scope, $stateParams, $ionicModal, Category, $filter){
 			var vm = this;
+
+			Category.get().$promise.then(function(data){
+				vm.categories 			=	$filter('orderBy')(data.categories, 'str_category', false);
+			});
 
 			$ionicModal.fromTemplateUrl('templates/cashOnHandModal.html', {
 			   scope: $scope,
