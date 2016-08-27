@@ -25,7 +25,7 @@ angular.module('app.routes', ['ionicUIRouter'])
     views: {
       'tab2': {
         templateUrl: 'templates/eBanking.html',
-        controller: 'eBankingCtrl as vm'
+        controller: 'eBankingCtrl'
       }
     }
   })

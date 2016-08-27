@@ -7,10 +7,11 @@
 
 		function signupCtrl($scope, $stateParams){
 			var vm = this;
+			vm.details = {};
 
-			vm.alert = function(){
-				alert("Hello");
-				console.log("adsf");
+				vm.signUp = function(details){
+				console.log(details);
+				console.log("Hello signup!");
 			}
 		}
 })();
