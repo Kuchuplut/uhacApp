@@ -22,11 +22,27 @@ angular.module('app')
 			}
 		});
 	})
+	.factory('Transaction', function($resource){
+		return $resource(apiUrl+'v1/accounts/:accountId/bank-accounts/:bankAccountId/transactions/:transactionId', {
+			accountId 			: 	'@accountId',
+			bankAccountId 		: 	'@bankAccountId',
+			transactionId 		: 	'@transactionId'
+		},{
+			update 				: 	{
+				method 			: 	'PUT',
+				isArray 		: 	false
+			}
+		});
+	})
 	.factory('Category', function($resource){
-		return $resource(apiUrl+'v1/categories', {});
+		return $resource(apiUrl+'v1/categories/:id', {
+			id 			: 	'@id'
+		});
 	})
 	.factory('Biller', function($resource){
-		return $resource(apiUrl+'v1/billers', {});
+		return $resource(apiUrl+'v1/billers/:id', {
+			id  		: 	'@id'
+		});
 	})
 	.factory('Session', function($resource){
 		return $resource(apiUrl+'v1/sessions/:id', {

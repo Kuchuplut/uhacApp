@@ -3,13 +3,12 @@
         <a id="accounts-button14" style="border-radius:30px 30px 30px 30px;" class="button button-energized  button-block icon-left ion-android-add-circle" ng-click="vm.showPopup()">Enroll Acccount</a>
         <div class="item item-body" id="accounts-list-item-container1">
             <h2 id="accounts-heading3" style="color:#000000;font-weight:300;">Debit</h2>
-            <ion-list id="accounts-list5">
+
+            
+
+            <ion-list id="accounts-list5" ng-repeat="bankAccount in vm.bankAccountList">
                 <ion-item class="item-icon-left dark" id="accounts-list-item10" href="google.com">
-                    <i class="icon ion-card"></i>0999-0098-2223</ion-item>
-                <ion-item class="item-icon-left item-icon-right energized" id="accounts-list-item2">
-                    <i class="icon ion-card"></i>0999-0098-2223
-                    <i class="icon ion-android-checkmark-circle"></i>
-                </ion-item>
+                    <i class="icon ion-card"></i>{{ bankAccount.str_account_no }}</ion-item>
             </ion-list>
         </div>
         <div class="item item-body" id="accounts-list-item-container2">

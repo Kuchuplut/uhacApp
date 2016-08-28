@@ -1,15 +1,59 @@
 <ion-view title="E- Banking" id="page3">
     <ion-content padding="true" class="has-header">
-        <h3 id="eBanking-heading12" style="color:black;font-weight:300;">Debit</h3>
-        <button id="eBanking-button7" style="font-size:16px;" class="button button-energized  button-block icon-left ion-ios-bolt-outline button-outline">Pay Utilities</button>
-        <button id="eBanking-button8" style="font-size:16px;" class="button button-energized  button-block icon-left ion-ios-undo button-outline">E-Pass</button>
-        <button id="eBanking-button15" style="font-size:16px;" class="button button-energized  button-block icon-left ion-android-add button-outline">Apply Debit Card</button>
+        <h3 id="eBanking-heading12" style="color:black;font-weight:300;">Savings</h3>
+       
+        <form ng-submit="vm.processExpense(vm.details)">
+       <label class="item item-input item-select">
+          <div class="input-label">
+            Choose Account
+          </div>
+          <select ng-model="vm.details.selectedAccount">
+            <option ng-repeat="account in vm.bankAccountList" ng-model="vm.details.selectedAccount" ng-value="account.int_bank_account_id">{{account.str_account_no}}</option>
+          </select>
+        </label>
+
+        <label class="item item-input item-select" ng-if="vm.details.selectedAccount != 'Cash'">
+          <div class="input-label">
+            Choose Biller
+          </div>
+          <select ng-model="vm.details.selectedBiller">
+            <option ng-repeat="bill in vm.billerList" ng-model="vm.details.selectedBiller" ng-value="bill.int_bill_id">{{bill.str_biller}}</option>
+          </select>
+        </label>
+
+        <label class="item item-input item-select">
+           <div class="input-label">
+             Expense
+           </div>
+           <select ng-model="vm.details.selectedCategory">
+             <option ng-repeat="category in vm.categories" ng-value="category.int_category_id">{{category.str_category}}</option>
+           </select>
+         </label>
+
+         <label class="item item-input item-stacked-label">
+             <span class="input-label">Amount</span>
+             <input type="number" ng-model="vm.details.amount">
+           </label>
+           <label class="item item-input item-stacked-label">
+             <span class="input-label">Reference no. 1</span>
+             <input type="number" ng-model="vm.details.reference1">
+           </label>
+           <label class="item item-input item-stacked-label">
+             <span class="input-label">Reference no. 2</span>
+             <input type="number" ng-model="vm.details.reference2">
+           </label>
+           <label class="item item-input item-stacked-label">
+             <span class="input-label">Reference no. 3</span>
+             <input type="number" ng-model="vm.details.reference3">
+           </label>
+        <button type="submit" name="action" id="eBanking-button7" style="font-size:16px;" class="button button-energized  button-block icon-left ion-ios-bolt-outline button-outline">Pay Utilities</button>
+    </form>
         <h3 id="eBanking-heading7" style="color:black;font-weight:300;">Credit</h3>
         <a ui-sref="tabsController.pastTransactions" id="eBanking-button13" style="font-size:16px;" class="button button-energized  button-block icon-left ion-ios-list-outline button-outline">View Transactions</a>
         <button id="eBanking-button16" style="font-size:16px;" class="button button-energized  button-block icon-left ion-android-add button-outline">Apply Credit Card</button>
         <h3 id="eBanking-heading13" style="color:black;font-weight:300;">Checking</h3>
         <button id="eBanking-button17" style="font-size:16px;" class="button button-energized  button-block icon-left ion-android-add button-outline">Apply Checking Account</button>
          <h3 id="eBanking-heading13" style="color:black;font-weight:300;">Cash On hand</h3>
-        <button id="eBanking-button17" style="font-size:16px;" class="button button-energized  button-block icon-left ion-android-add button-outline" ng-click="openModal()">Add Cash onhand</button>
+        <button id="eBanking-button17" style="font-size:16px;" class="button button-energized  button-block icon-left ion-android-add button-outline" ng-click="showModal()">Add Cash onhand</button>
     </ion-content>
 </ion-view>
