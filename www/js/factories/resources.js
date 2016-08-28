@@ -30,7 +30,8 @@ angular.module('app')
 		},{
 			update 				: 	{
 				method 			: 	'PUT',
-				isArray 		: 	false
+				isArray 		: 	false,
+				headers			: 	{'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
 			}
 		});
 	})

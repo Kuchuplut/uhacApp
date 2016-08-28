@@ -45,7 +45,7 @@
 	 			});
 	 			if (boolCash){
 
-	 				transaction.$save(function(data){
+	 				transaction.$save(function(transactionData){
 	 					var expenseData 		=	{
 	 						'int_bank_account_id' 		: 	details.selectedAccount,
 	 						'int_bill_id'				: 	details.selectedBiller,
@@ -55,6 +55,16 @@
 			 				'transactionType'			: 	2,
 			 				'status'					: 	'S'
 	 					};//end var
+	 					console.log(transactionData);
+	 					Transaction.update({
+	 						accountId : session.int_account_id,
+	 						bankAccountId : expenseData.int_bank_account_id,
+	 						transactionId : transactionData.transaction.int_transaction_id,
+	 						transactionType : 2,
+	 						expenseData : expenseData
+	 					}, expenseData).$promise.then(function(transactionData){
+	 						console.log('SUCCESS!!!');
+	 					});
 	 				});
 
 	 			}else{
@@ -95,15 +105,17 @@
 			 					'content-type'	: 'application/json',
 			 					'x-ibm-client-id' : '21f60fcb-aff1-4add-a07d-22a3ee3ae8fe',
 			 					'x-ibm-client-secret' : 'M4nF3mG2wO1cN1aI1sX7qH4rU4sB0rH8iW4jU6mL2mR2qW5dI4'
-			 				}}).then(function(data){
-			 					expenseData.str_confirmation_no 		=	data.confirmation_no;
-			 					expenseData.status 						=	data.status;
-
+			 				}}).then(function(bankApiData){
+			 					console.log(bankApiData);
+			 					expenseData.str_confirmation_no 		=	bankApiData.data.confirmation_no;
+			 					expenseData.status 						=	bankApiData.data.status;
+			 					console.log(expenseData);
 			 					Transaction.update({
 			 						accountId : session.int_account_id,
 			 						bankAccountId : expenseData.int_bank_account_id,
 			 						transactionId : bankData.transaction_id,
-			 						transactionType : 2
+			 						transactionType : 2,
+			 						expenseData : expenseData
 			 					}, expenseData).$promise.then(function(transactionData){
 			 						console.log('SUCCESS!!!');
 			 					});
