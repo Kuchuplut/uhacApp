@@ -35,6 +35,12 @@ angular.module('app')
 			}
 		});
 	})
+	.factory('Goal', function($resource){
+		return $resource(apiUrl+'v1/accounts/:accountId/goals/:goalId', {
+			accountId 		: 	'@accountId',
+			goalId 			: 	'@goalId'
+		});
+	})
 	.factory('Category', function($resource){
 		return $resource(apiUrl+'v1/categories/:id', {
 			id 			: 	'@id'
@@ -48,5 +54,10 @@ angular.module('app')
 	.factory('Session', function($resource){
 		return $resource(apiUrl+'v1/sessions/:id', {
 			id 			: 	'@id'
+		});
+	})
+	.factory('TransactionReport', function($resource){
+		return $resource(apiUrl+'v1/accounts/:accountId/transactions', {
+			accountId 		: 	'@accountId'
 		});
 	});
