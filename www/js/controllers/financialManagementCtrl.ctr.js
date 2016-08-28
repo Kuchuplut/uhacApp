@@ -5,7 +5,7 @@
 		.module('app')
 		.controller('financialManagerCtrl', financialManagerCtrl);
 
-		function financialManagerCtrl($scope, $stateParams,$ionicModal){
+		function financialManagerCtrl($scope, $stateParams){
 			var vm = this;
 			$scope.items = [{
 				title: "asdf",
