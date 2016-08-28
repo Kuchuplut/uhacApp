@@ -17,7 +17,7 @@
                      <h2 id="financialManager-heading11" style="color:#0B740F;font-weight:600;">Goals</h2>
                 </div>
                 <div class="col col-25">
-                    <button id="financialManager-button9" style="text-align:left;" class="button button-large button-balanced  icon-right ion-android-add-circle button-clear col col-25"></button>
+                    <button id="financialManager-button9" ui-sref="createGoal" style="text-align:left;" class="button button-large button-balanced  icon-right ion-android-add-circle button-clear col col-25"></button>
                 </div>
             </div>
            
@@ -26,7 +26,7 @@
                       show-delete="shouldShowDelete"
                       show-reorder="shouldShowReorder"
                       can-swipe="listCanSwipe">
-              <ion-item ng-repeat="item in vm.items"
+              <ion-item ng-repeat="item in items"
                       >
 
                 <h2>{{item.title}}</h2>

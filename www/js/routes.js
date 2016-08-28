@@ -101,6 +101,12 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'myAccountCtrl as vm'
   })
 
+  .state('createGoal', {
+    url: '/createGoal',
+    templateUrl: 'templates/setGoalsModal.html',
+    controller: 'financialManagerCtrl as vm'
+  })
+
   /* 
     The IonicUIRouter.js UI-Router Modification is being used for this route.
     To navigate to this route, do NOT use a URL. Instead use one of the following:

@@ -5,27 +5,28 @@
 		.module('app')
 		.controller('financialManagerCtrl', financialManagerCtrl);
 
-		function financialManagerCtrl($scope, $stateParams){
+		function financialManagerCtrl($scope, $stateParams,$ionicModal){
 			var vm = this;
-			vm.items = [{
+			$scope.items = [{
 				title: "asdf",
 				description: "Hahahaha"
 			}];
 
+			
 			 $scope.shouldShowDelete = false;
 			 $scope.shouldShowReorder = false;
 			 $scope.listCanSwipe = true
 
-			vm.alert = function(){
+		$scope.alert = function(){
 				alert("Hello");
 				console.log("adsf");
 			}
 
-			vm.share = function(item){
+			$scope.share = function(item){
 
 			}
 
-			vm.edit = function(item){
+			$scope.edit = function(item){
 				
 			}
 		}
